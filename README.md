@@ -18,7 +18,7 @@ Create Cron Job:
 Create a cron job for updating feeds and point it to:
 
 arduino
-Copiar código
+
 http://yourselfossurl.com/update
 You can use wget or curl, or execute the cliupdate.php from the command line.
 
@@ -70,7 +70,7 @@ OPML Import
 Visit the page:
 
 arduino
-Copiar código
+
 http://yourselfossurl.com/opml
 for importing your OPML file. If you are a Google Reader user, use Google Takeout to get all your feeds in one OPML file.
 
@@ -82,7 +82,7 @@ Selfoss uses git submodules for some external libraries.
 When you clone the repository, run the following commands to retrieve the external sources:
 
 csharp
-Copiar código
+
 git submodule init
 git submodule update
 Credits
