@@ -1,46 +1,93 @@
+Selfoss - Aggregator
 Copyright (c) 2015 HttpEdu
-http://selfoss.HttpEdu
 Licensed under the GPLv3 license
 Version 2.16-SNAPSHOT
 
-INSTALLATION
-Upload all files of this folder (IMPORTANT: also upload the invisible .htaccess files)
-Make the directories data/cache, data/favicons, data/logs, data/thumbnails, data/sqlite and public/ writeable
-Insert database access data in config.ini (see below -- you don't have to change anything if you want to use sqlite)
-You don't have to install the database, it will be created automatically (ensure that your database has enough rights for creating triggers)
-Create cronjob for updating feeds and point it to http://yourselfossurl.com/update via wget or curl. You can also execute the cliupdate.php from commandline.
-For further questions or on any problem, use our support forum: http://selfoss.HttpEdu/forum/
+Installation
+Upload Files:
+Upload all files of this folder (IMPORTANT: also upload the invisible .htaccess files).
 
-CONFIGURATION
-Copy defaults.ini to config.ini
-Edit config.ini and delete any lines you do not wish to override
-Do not delete the [globals] line
-See http://selfoss.HttpEdu/ for examples
+Set Permissions:
+Make the directories data/cache, data/favicons, data/logs, data/thumbnails, data/sqlite, and public/ writeable.
 
-UPDATE
-Backup your database and your "data" folder
-(IMPORTANT: don't delete the "data" folder) delete all old files and folders excluding the folder "data" and the file config.ini
-Upload all new files and folders excluding the data folder (IMPORTANT: also upload the invisible .htaccess files)
-Rename your folder /data/icons into /data/favicons
-Delete the files /public/all-v*.css and /public/all-v*.js
-Clean your browser cache
-Insert your current database connection and your individual configuration in config.ini. Important: we change the config.ini and add new options in newer versions. You have to update the config.ini too.
-The database will be updated automatically (ensure that your database has enough rights for creating triggers)
-For further questions or on any problem, use our support forum: http://selfoss.HttpEdu/forum
+Configure Database:
+Insert database access data in config.ini. If using sqlite, you don’t have to change anything.
+The database will be created automatically (ensure that your database has enough rights for creating triggers).
+
+Create Cron Job:
+Create a cron job for updating feeds and point it to:
+
+arduino
+Copiar código
+http://yourselfossurl.com/update
+You can use wget or curl, or execute the cliupdate.php from the command line.
+
+Need Help?
+For further questions or issues, use our support forum.
+
+Configuration
+Copy Config:
+Copy defaults.ini to config.ini.
+
+Edit Config:
+Edit config.ini and delete any lines you do not wish to override.
+IMPORTANT: Do not delete the [globals] line.
+
+Need Examples?
+See selfoss.HttpEdu for examples.
+
+Update Instructions
+Backup:
+Backup your database and the data folder. Do not delete the data folder.
+
+Delete Old Files:
+Delete all old files and folders, excluding the folder data and the file config.ini.
+
+Upload New Files:
+Upload all new files and folders, excluding the data folder.
+IMPORTANT: Also upload the invisible .htaccess files.
+
+Rename Icons Folder:
+Rename /data/icons to /data/favicons.
+
+Delete CSS and JS:
+Delete the files /public/all-v*.css and /public/all-v*.js.
+
+Clear Browser Cache:
+Clean your browser cache.
+
+Update Config:
+Insert your current database connection and individual configurations in config.ini.
+IMPORTANT: We update the config.ini in newer versions, so make sure to update it as well.
+
+Database Update:
+The database will be updated automatically (ensure that your database has enough rights for creating triggers).
+
+Need Help?
+For further questions or issues, use our support forum.
 
 OPML Import
-Visit the page http://yourselfossurl.com/opml for importing your OPML File. If you are a user of the google reader then use https://www.google.com/takeout/ to get all your feeds in one OPML file.
+Visit the page:
 
-APPS
+arduino
+Copiar código
+http://yourselfossurl.com/opml
+for importing your OPML file. If you are a Google Reader user, use Google Takeout to get all your feeds in one OPML file.
+
+Apps
 A third-party app is available for Android: Selfoss.
 
-DEVELOPMENT
-Selfoss uses git submodules for some external libraries. When you clone the repository, you have to issue a git submodule init as well as a git submodule update to retrieve the external sources.
+Development
+Selfoss uses git submodules for some external libraries.
+When you clone the repository, run the following commands to retrieve the external sources:
 
-CREDITS
-Very special thanks to all contributors of pull requests here on github. Your improvements are awesome!!!
-
-Special thanks to the great programmers of these libraries which will be used in selfoss:
+csharp
+Copiar código
+git submodule init
+git submodule update
+Credits
+Special thanks to all contributors of pull requests on GitHub. Your improvements are awesome!
+Additionally, special thanks to the developers of the libraries used in Selfoss:
 
 FatFree PHP Framework: https://github.com/bcosca/fatfree
 SimplePie: http://simplepie.org/
@@ -56,6 +103,5 @@ jsmin: https://github.com/rgrove/jsmin-php
 cssmin: https://code.google.com/archive/p/cssmin
 Spectrum Colorpicker: https://github.com/bgrins/spectrum
 jQuery custom content scroller: http://manos.malihu.gr/jquery-custom-content-scroller/
-twitter oauth library: https://github.com/abraham/twitteroauth
 FullTextRSS: http://help.fivefilters.org/customer/portal/articles/223153-site-patterns
 Icon Source: http://www.artcoreillustrations.com/
