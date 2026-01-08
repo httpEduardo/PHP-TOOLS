@@ -50,12 +50,17 @@ Upload all files from this package to your web server directory.
 Make the following directories writable by the web server:
 
 ```bash
-chmod -R 777 data/cache
-chmod -R 777 data/favicons
-chmod -R 777 data/logs
-chmod -R 777 data/thumbnails
-chmod -R 777 data/sqlite
-chmod -R 777 public/
+chmod -R 775 data/cache
+chmod -R 775 data/favicons
+chmod -R 775 data/logs
+chmod -R 775 data/thumbnails
+chmod -R 775 data/sqlite
+chmod -R 775 public/
+```
+
+**Note**: If you encounter permission issues, you may need to ensure the web server user (e.g., `www-data`, `apache`) owns these directories:
+```bash
+chown -R www-data:www-data data/ public/
 ```
 
 ### Step 3: Configure Database
@@ -156,7 +161,7 @@ To protect your Selfoss installation:
 
 ### Configuration Examples
 
-For more configuration examples, visit: [selfoss.HttpEdu](http://selfoss.HttpEdu)
+For more configuration examples, see the `defaults.ini` file which contains all available configuration options with comments.
 
 ## Usage
 
@@ -197,9 +202,11 @@ For more configuration examples, visit: [selfoss.HttpEdu](http://selfoss.HttpEdu
 **Problem**: "Permission denied" errors
 - **Solution**: Ensure the `data/` and `public/` directories are writable by the web server:
   ```bash
-  chmod -R 777 data/
-  chmod -R 777 public/
+  chmod -R 775 data/
+  chmod -R 775 public/
+  chown -R www-data:www-data data/ public/
   ```
+  Replace `www-data` with your web server user if different (e.g., `apache`, `nginx`).
 
 **Problem**: Feeds not updating automatically
 - **Solution**: 
@@ -329,6 +336,8 @@ Selfoss uses git submodules for external libraries.
    git clone https://github.com/httpEduardo/PHP-TOOLS.git
    cd PHP-TOOLS
    ```
+   
+   **Note**: This is a customized distribution of Selfoss. For the official Selfoss source, visit [github.com/SSilence/selfoss](https://github.com/SSilence/selfoss).
 
 2. **Initialize submodules**:
    ```bash
